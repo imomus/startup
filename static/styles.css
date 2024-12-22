@@ -1,0 +1,507 @@
+/* Basic reset for the page */
+/* General Styles */
+/* General container for the homepage */
+/* Ensure footer spans across the screen and is fixed at the bottom */
+/* General styling for the header */
+.header {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Space between logo and player info */
+    align-items: center; /* Aligns items vertically */
+    position: fixed; /* Keeps the header fixed at the top */
+    top: 0;
+    width: 100%; /* Spans the full width */
+    z-index: 100; /* Ensures it stays above everything */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    border-bottom: 2px solid #555; /* Optional: border at the bottom */
+}
+
+/* Content inside the header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo and website name */
+.logo-section {
+    display: flex;
+    align-items: center;
+    border: #ccc;
+}
+
+.logo {
+    height: 50px; /* Adjust logo size */
+    margin-right: 10px; /* Space between logo and website name */
+    border: 1px solid white;  /* Adjust thickness as needed */
+    /* Optional: Adds space between image and border */
+    display: block;  /* Ensure the image is block-level to avoid extra space around it */
+}
+
+.website-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4caf50; /* Green color for the name */
+}
+
+/* Player information */
+.player-info {
+    display: flex;
+    gap: 20px; /* Space between player name and score */
+    font-size: 1rem;
+}
+
+.player-name, .player-score {
+    font-size: 1.1rem;
+    color: #f0f0f0;
+}
+
+.footer {
+    background-color: #333; /* Dark background for the footer */
+    color: #fff; /* White text for contrast */
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    position: fixed; /* Makes the footer fixed at the bottom */
+    bottom: 0; /* Aligns the footer to the bottom of the viewport */
+    width: 100%; /* Stretches the footer across the entire screen */
+    z-index: 10; /* Ensures it stays above background elements */
+    border-top: 2px solid #555; /* Optional: Subtle border for separation */
+}
+
+/* Links inside the footer */
+.footer a {
+    color: #4caf50; /* Green for links */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+
+/* Ensure the container does not overlap with the fixed footer */
+.container {
+    margin-bottom: 100px; /* Add spacing to avoid content overlapping with the footer */
+}
+
+.wow
+{
+    margin-bottom: 20px;
+
+}
+
+/* Individual game card styling */
+.game-card {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* Space between the content and the button */
+    align-items: center; /* Align items vertically in the center */
+    text-align: left; /* Left align the text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0; /* Add spacing between game cards */
+    flex-direction: row; /* Ensure the content and button are in a row */
+}
+.game-card-content {
+    flex: 1; /* Allow the content section to take up remaining space */
+    padding-right: 20px; /* Add spacing between content and button */
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Game titles */
+.game-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Game description */
+.game-card p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Game buttons */
+.game-card a {
+    text-decoration: none;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Align the button to the right */
+}
+
+.game-card a:hover {
+    background-color: #45a049;
+}
+
+.feedback {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    color: #333;
+}
+
+.sutra-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.definitions-section {
+    margin: 20px 0;
+}
+
+.definitions-section label {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.definitions-section select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sutra-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sutra-row label {
+    font-size: 1.2rem;
+    width: 40%;
+    text-align: left;
+}
+
+.sutra-row select {
+    width: 55%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+.container1 {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    padding: 30px;
+    background: rgb(247, 247, 247); /* Semi-transparent black background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.games {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Game Box Style */
+.game {
+    background-color: #d00e0e;
+    padding: 20px;
+    width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.game p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Matching Game Layout */
+.matching-game {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sutras-column, .definitions-column {
+    width: 45%;
+}
+
+.sutra-item, .definition-item {
+    margin-bottom: 15px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+/* Ensure that the body takes the full viewport size and removes margins */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Video background style */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* To make sure it's behind the content */
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire screen */
+}
+
+/* Styling for the container that holds text and form */
+.container {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    padding: 30px;
+    background: rgba(134, 91, 91, 0.7); /* Semi-transparent black background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    margin-right: 450px;
+}
+
+/* Header styling */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ff6347; /* Bright orange color */
+}
+
+/* Sutra styling (italicized and smaller) */
+p em {
+    font-size: 20px;
+    color: #3437e2; /* Light gray */
+}
+
+/* Problem text styling */
+.text {
+    font-size: 22px;
+    margin: 20px 0;
+    color: #100f0f;
+    line-height: 1.5;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #dd0c0c;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #ff6347;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 400px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #ff4500; /* Darker orange when focused */
+}
+
+button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff4500; /* Darker orange on hover */
+}
+
+/* Feedback message styling */
+.feedback {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(0, 128, 0, 0.8); /* Green feedback background */
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full screen setup for the video */
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* The video background */
+.video-background {
+    position: fixed; /* Keeps the video in the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures it stays behind content */
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Make sure the video stretches to cover the entire screen */
+.video-background video {
+    object-fit: cover; /* Ensures the video fills the entire viewport */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Style for the page content */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.feedback {
+    margin-top: 15px;
+    background: #ffdddd;
+    color: #d63333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button {
+    text-decoration: none;
+    background: #2ada1d;
+    color: white;
+    margin-top: 234px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+.text
+{
+   margin-bottom: 30px; 
+}
+
+
+
+

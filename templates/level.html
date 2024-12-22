@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level {{ level }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="/"> 
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Website Logo" class="logo">
+                </a>
+                <span class="website-name">Vedic Maths Game</span>
+            </div>
+            <div class="player-info">
+                <span class="player-name">Player: <span id="player-name">{{ session.get('player_name', 'Guest') }}</span></span>
+                <span class="player-score">Score: <span id="player-score">{{ session.get('score', 0) }}</span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='math.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="container">
+        <h1>Level {{ level }}: {{ level_info.name }}</h1>
+        <p><em>Sutra: {{ level_info.sanskrit }}</em></p>
+        <p class="text">{{ problem }}</p>
+        <form method="post">
+            <label for="answer">Your Answer:</label>
+            <input type="text" id="answer" name="answer" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if feedback %}
+        <div class="feedback">
+            <p>{{ feedback }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Cluster Innovation Centre. All Rights Reserved.</p>
+            <p>Contact us: <a href="mailto:imomujjwalsingh@gmail.com">imomujjwalsingh@gmail.com</a></p>
+            <p>
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/privacy">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initial static values for player name and score
+        document.getElementById("player-name").textContent = "{{ session.get('player_name', 'Guest') }}";
+        document.getElementById("player-score").textContent = "{{ session.get('score', 0) }}";
+
+        // Function to dynamically fetch and update player score
+        function fetchAndUpdateScore() {
+            fetch('/api/score')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("player-name").textContent = data.player_name || "{{ session.get('player_name', 'Guest') }}";
+                    document.getElementById("player-score").textContent = data.score || "{{ session.get('score', 0) }}";
+                })
+                .catch(error => console.error('Error fetching score:', error));
+        }
+
+        // Periodically update the score (every 3 seconds)
+        setInterval(fetchAndUpdateScore, 3000);
+    </script>
+</body>
+</html>

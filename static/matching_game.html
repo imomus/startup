@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='math.mp4') }}" type="video/mp4">
+            <!-- Fallback content if video can't load -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="container">
+        <h1>Match Sutras with Their Definitions</h1>
+        <form method="POST">
+            <div class="matching-game">
+                {% for sutra in sutras_and_defs %}
+                    <div class="sutra-row">
+                        <label for="sutra_{{ loop.index }}">{{ sutra.sutra }}</label>
+                        <select name="{{ sutra.sutra }}" id="sutra_{{ loop.index }}" required>
+                            <option value="" disabled selected>Select a definition</option>
+                            {% for definition in definitions %}
+                                <option value="{{ definition }}">{{ definition }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn">Submit Matches</button>
+        </form>
+    </div>
+</body>
+</html>

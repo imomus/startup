@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Math Quest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Vedic Math Quest</h1>
+        <form action="/calculate" method="post">
+            <label for="level">Choose Level:</label>
+            <select id="level" name="level">
+                <option value="1">Level 1: Squares of numbers ending in 5</option>
+                <option value="2">Level 2: Multiplication</option>
+                <option value="3">Level 3: Division</option>
+                <option value="4">Level 4: Subtraction</option>
+                <option value="5">Level 5: Patterns in Multiplication</option>
+            </select>
+
+            <label for="number1">Number 1:</label>
+            <input type="number" id="number1" name="number1" required>
+
+            <label for="number2">Number 2:</label>
+            <input type="number" id="number2" name="number2" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Result:</h2>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

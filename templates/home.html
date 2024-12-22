@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Math Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+        <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="/"> <img src="{{ url_for('static', filename='logo.png') }}" alt="Website Logo" class="logo"></a>
+                <!-- Replace with your logo file -->
+                <span class="website-name">Vedic Maths Game</span>
+            </div>
+            <div class="player-info">
+                <span class="player-name">Player: <span id="player-name">Guest</span></span>
+                <span class="player-score">Score: <span id="player-score">0</span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='math.mp4') }}" type="video/mp4">
+            <!-- Fallback content if video can't load -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div>
+        <!-- Game 1: Calculation Game -->
+        <div class="game-card">
+            <div class="game-card-content">
+                <h2>Game 1: Calculation Game</h2>
+                <p>Test your Vedic math skills in this calculation-based game. Solve problems and progress through levels!</p>
+            </div>
+            <a class="wow" onclick="window.location.href='/start-calculating'" value = "calcualting" >Start Game</a>
+        </div>
+    
+        <!-- Game 2: Matching Game -->
+        <div class="game-card">
+            <div class="game-card-content">
+                <h2>Game 2: Matching Game</h2>
+                <p>Match Vedic Sutras with their definitions in this engaging and educational game.</p>
+            </div>
+            <a  class="wow" onclick="window.location.href='/start-matching'" value="matching" >Start Game</a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Cluster Innvation Centre. All Rights Reserved.</p>
+            <p>Contact us: <a href="mailto:imomujjwalsingh@gmail.com">imomujjwalsingh@gmail.com</a></p>
+            <p>
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/privacy">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // Ask for the player's name when the game starts
+        window.onload = function () {
+        let playerName = prompt("Welcome! Please enter your name:");
+        if (!playerName) {
+            playerName = "Guest"; // Default name if nothing is entered
+        }
+        document.getElementById("player-name").textContent = playerName;
+    };
+
+        function fetchAndUpdateScore() {
+        fetch('/api/score')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("player-name").textContent = data.player_name;
+                document.getElementById("player-score").textContent = data.score;
+            })
+            .catch(error => console.error('Error fetching score:', error));
+    }
+
+    // Fetch score every 3 seconds
+    setInterval(fetchAndUpdateScore, 3000);
+
+
+    </script>
+    
+    
+    
+
+</body>
+
+</html>
+
+
+

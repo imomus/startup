@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+            <!-- Header Section -->
+            <header class="header">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <a href="/"> <img src="{{ url_for('static', filename='logo.png') }}" alt="Website Logo" class="logo"></a>
+                        <span class="website-name">Vedic Maths Game</span>
+                    </div>
+                    <div class="player-info">
+                        <span class="player-name">Player: <span id="player-name">Guest</span></span>
+                        <span class="player-score">Score: <span id="player-score">0</span></span>
+                    </div>
+                </div>
+            </header>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='math.mp4') }}" type="video/mp4">
+            <!-- Fallback content if video can't load -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="container">
+        <h1>Match the Sutra with Its Definition</h1>
+        
+        {% if feedback %}
+            <div class="feedback">
+                <p>{{ feedback }}</p>
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="sutra-section">
+                <h2>{{ sutra }}</h2>
+            </div>
+
+            <div class="definitions-section">
+                <label for="definition">Choose the correct definition:</label>
+                <select name="definition" id="definition" required>
+                    <option value="" disabled selected>Select a definition</option>
+                    {% for definition in definitions %}
+                        <option value="{{ definition }}">{{ definition }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Cluster Innvation Centre. All Rights Reserved.</p>
+            <p>Contact us: <a href="mailto:imomujjwalsingh@gmail.com">imomujjwalsingh@gmail.com</a></p>
+            <p>
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/privacy">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        function fetchAndUpdateScore() {
+        fetch('/api/score')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("player-name").textContent = data.player_name;
+                document.getElementById("player-score").textContent = data.score;
+            })
+            .catch(error => console.error('Error fetching score:', error));
+    }
+
+        // Fetch score every 3 seconds
+        setInterval(fetchAndUpdateScore, 3000);
+    </script>
+</body>
+</html>

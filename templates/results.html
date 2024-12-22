@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+     <!-- Header Section -->
+     <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="/"> <img src="{{ url_for('static', filename='logo.png') }}" alt="Website Logo" class="logo"></a>
+                <span class="website-name">Vedic Maths Game</span>
+            </div>
+            <div class="player-info">
+                <span class="player-name">Player: <span id="player-name">Guest</span></span>
+                <span class="player-score">Score: <span id="player-score">0</span></span>
+            </div>
+        </div>
+    </header>
+    <!-- Video Background -->
+    <div class="video-background">
+    <video autoplay loop muted>
+        <source src="{{ url_for('static', filename='math.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </div>
+
+    <div class="container">
+        <h1>Congratulations!</h1>
+        <p class="text">Your final score is: <strong>{{ score }}</strong></p>
+        <a href="/" class="button">Play Again</a>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Cluster Innvation Centre. All Rights Reserved.</p>
+            <p>Contact us: <a href="mailto:imomujjwalsingh@gmail.com">imomujjwalsingh@gmail.com</a></p>
+            <p>
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/privacy">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
